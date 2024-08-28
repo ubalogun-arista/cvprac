@@ -207,7 +207,7 @@ class CvpApi():
                 first_name (str): first name of the user
                 last_name (str): last name of the user
                 email (str): email address of the user
-                user_type (str): type of AAA (Local/TACACS/RADIUS)
+                user_type (str): type of AAA (Local/TACACS/RADIUS/LDAP)
         '''
         if status not in ['Enabled', 'Disabled']:
             self.log.error(f"Invalid status {status}."
@@ -240,7 +240,7 @@ class CvpApi():
                 first_name (str): first name of the user
                 last_name (str): last name of the user
                 email (str): email address of the user
-                user_type (str): type of AAA (Local/TACACS/RADIUS)
+                user_type (str): type of AAA (Local/TACACS/RADIUS/LDAP)
         '''
         if status not in ['Enabled', 'Disabled']:
             self.log.error(f"Invalid status {status}."
