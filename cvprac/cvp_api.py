@@ -3930,9 +3930,9 @@ class CvpApi():
                       'time': '2022-05-03T15:38:53.725014447Z', 'type': 'INITIAL'}, ...]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             url = '/api/resources/serviceaccount/v1/Token/all'
-            self.log.debug(f"v12 {url}")
+            self.log.debug(f"v14 {url}")
             # Pull list of tokens out of data key of return for new resource APIs
             resp = self.clnt.get(url)
             tokens = []
@@ -3958,10 +3958,10 @@ class CvpApi():
                       'time': '2022-05-03T15:38:53.725014447Z', 'type': 'INITIAL'}]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             endpoint = '/api/resources/serviceaccount/v1/Token'
             query_param = f"?key.id={token_id}"
-            self.log.debug(f'v12 {endpoint + query_param}')
+            self.log.debug(f'v14 {endpoint + query_param}')
             return self.clnt.get(endpoint + query_param)
         if self.cvp_version_compare('>=', 7.0, msg):
             endpoint = '/api/v3/services/arista.serviceaccount.v1.TokenService/GetOne'
@@ -3981,9 +3981,9 @@ class CvpApi():
                       'time': '2022-07-26T15:29:03.687167871Z'}]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             endpoint = f'/api/resources/serviceaccount/v1/TokenConfig?key.id={token_id}'
-            self.log.debug(f'v12 {endpoint}')
+            self.log.debug(f'v14 {endpoint}')
             return self.clnt.delete(endpoint)
         if self.cvp_version_compare('>=', 7.0, msg):
             endpoint = '/api/v3/services/arista.serviceaccount.v1.TokenConfigService/Delete'
@@ -4008,7 +4008,7 @@ class CvpApi():
                       'valid_for': '550s', 'token': '<ey...>'}]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             payload = {
                 'key': {
                     'id': ''
@@ -4019,7 +4019,7 @@ class CvpApi():
                 'token': ''
             }
             endpoint = '/api/resources/serviceaccount/v1/TokenConfig'
-            self.log.debug(f'v12 {endpoint} {payload}')
+            self.log.debug(f'v14 {endpoint} {payload}')
             return self.clnt.post(endpoint, data=payload)
         if self.cvp_version_compare('>=', 7.0, msg):
             payload = {
@@ -4044,9 +4044,9 @@ class CvpApi():
                       'time': '2022-02-10T04:28:14.251684869Z', 'type': 'INITIAL'}, ...]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             endpoint = '/api/resources/serviceaccount/v1/Account/all'
-            self.log.debug(f"v12 {endpoint}")
+            self.log.debug(f"v14 {endpoint}")
             # Pull list of accounts out of data key of return for new resource APIs
             resp = self.clnt.get(endpoint)
             svc_accounts = []
@@ -4071,10 +4071,10 @@ class CvpApi():
                       'time': '2022-02-10T04:28:14.251684869Z'}]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             endpoint = '/api/resources/serviceaccount/v1/Account'
             query_param = f"?key.name={username}"
-            self.log.debug(f"v12 {endpoint + query_param}")
+            self.log.debug(f"v14 {endpoint + query_param}")
             return self.clnt.get(endpoint + query_param)
         if self.cvp_version_compare('>=', 7.0, msg):
             endpoint = '/api/v3/services/arista.serviceaccount.v1.AccountService/GetOne'
@@ -4125,7 +4125,7 @@ class CvpApi():
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
         # Retrieve valid role IDs
         role_ids = self._get_valid_role_ids(roles)
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             payload = {
                 'description': description,
                 'groups': {'values': role_ids},
@@ -4133,7 +4133,7 @@ class CvpApi():
                 'status': status
             }
             endpoint = '/api/resources/serviceaccount/v1/AccountConfig'
-            self.log.debug(f"v12 {endpoint} {payload}")
+            self.log.debug(f"v14 {endpoint} {payload}")
             return self.clnt.post(endpoint, data=payload)
         if self.cvp_version_compare('>=', 7.0, msg):
             payload = {'value': {'description': description,
@@ -4156,14 +4156,14 @@ class CvpApi():
                       'time': '2022-07-26T18:26:53.637425846Z'}]
         '''
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             endpoint = f'/api/resources/serviceaccount/v1/AccountConfig?key.name={username}'
-            self.log.debug(f"v7 {endpoint}")
+            self.log.debug(f"v14 {endpoint}")
             return self.clnt.delete(endpoint)
         if self.cvp_version_compare('>=', 7.0, msg):
             payload = {"key": {"name": username}}
             endpoint = '/api/v3/services/arista.serviceaccount.v1.AccountConfigService/Delete'
-            self.log.debug(f"v12 {endpoint} {payload}")
+            self.log.debug(f"v7 {endpoint} {payload}")
             return self.clnt.post(endpoint, data=payload)
         return None
 
@@ -4182,7 +4182,7 @@ class CvpApi():
         msg = 'Service Account Resource APIs are supported from 2021.3.0+.'
         valid_until_format = "valid_until"
         resource_api_schema = False
-        if self.cvp_version_compare('>=', 12.0, msg):
+        if self.cvp_version_compare('>=', 14.0, msg):
             resource_api_schema = True
             valid_until_format = "validUntil"
         tokens = self.svc_account_token_get_all()
